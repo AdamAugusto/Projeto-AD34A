@@ -41,7 +41,6 @@
   <div class="row">
   <?php 
       $i=0;
-      require('models/produto.model.php');
       foreach($itens as $item => $valores){
         if($i==3){
           ?>
