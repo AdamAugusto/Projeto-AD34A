@@ -52,12 +52,15 @@
       ?>
         <div class="col">
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+        <img src="../imagens/discord.png" class="card-img-top" alt="..."  height="100">
+          <div class="card-img-overlay d-flex justify-content-end align-top">
+            <a href="index.php?acao=excluirItem" class="btn btn-outline-danger" style="max-height:40px">X</a>
+          </div>
           <div class="card-body sm">
             <h5 class="card-title"><?= $item?></h5>
             <p class="card-text"><?= $valores['descricao']?></p>
             <p class="card-text">R$ <?= $valores['preco']?>,00</p>
-            <a href="index.php?acao=comprar" class="btn btn-primary">Comprar</a>
+            <a href="index.php?acao=comprar" class="btn" style="background-color:orange">Comprar</a>
           </div>
         </div>
         </div>          

@@ -1,4 +1,4 @@
-<footer class="d-flex justify-content-center fixed-bottom">
+<footer class="d-flex justify-content-center sticky-bottom">
             
 <nav class="navbar flex-sm-fill justify-content-center" style = "background-color: #ffa500;">
   <div>
