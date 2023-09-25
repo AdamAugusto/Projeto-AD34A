@@ -6,7 +6,7 @@
                     <a>Login</a>
                 </div>
                 <div class="form-floating mb-2">
-                    <input name="usuario" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                    <input name="usuario" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput" class="form-label ms-1">Email address</label>
                 </div>
                 <div class="form-floating mb-2">
@@ -18,8 +18,8 @@
                 </div>
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary" type="submit">Login</button>
-                </div></div>
-                
+                </div>
+                           
             </form>
         </div>
     </div>

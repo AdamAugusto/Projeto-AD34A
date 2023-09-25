@@ -29,10 +29,10 @@
                         </label>
                     </div>
                 </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">Cadastrar</button>
-                </div></div>
-                
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" type="submit">Cadastrar</button>
+                    </div>
+                               
             </form>
         </div>
     </div>

@@ -50,7 +50,7 @@
                     <a class="nav-link" href="index.php?acao=cadastrar">Cadastrar Item</a>
                 </li>
                 <li class="nav-item flex-sm-fill text-sm-center">
-                    <a class="nav-link nav-link-color:black" >Disabled</a>
+                    <a class="nav-link nav-link-color:black" href="index.php?acao=carrinho">Carrinho</a>
                 </li>
                 <li class="nav-item dropdown flex-sm-fill text-sm-center" style="color:black">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>

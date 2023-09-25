@@ -38,14 +38,14 @@
 </div>
 
 <div class="container text-center">
-  <div class="row">
+  <div class="row mt-3">
   <?php 
       $i=0;
       foreach($itens as $item => $valores){
         if($i==3){
           ?>
             </div>
-            <div class="row">
+            <div class="row mt-3">
           <?php 
           $i=0;
         }

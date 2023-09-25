@@ -62,6 +62,10 @@
             case 'comprar':
                 require('controllers/comprarItem.controller.php');
                 break;
+
+            case 'carrinho':
+                require('controllers/carrinho.controller.php');
+                break;
                 
             default:
                 require('controllers/homePage.controller.php');
