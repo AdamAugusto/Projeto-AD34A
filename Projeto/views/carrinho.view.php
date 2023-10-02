@@ -15,7 +15,7 @@
         </div>
 
         <div class=" mt-3" style=" background-color:lightgrey; width:1110px;">
-        <div class="d-flex justify-content-between mt-3 ms-3 me-3 mb-3 pt-1">
+            <div class="d-flex justify-content-between mt-3 ms-3 me-3 mb-3 pt-1">
                     <b>Carrinho</b>
                     <div class=" ">
                         <button type="submit" class="btn btn-outline  justify-content-center" style="background-color:white; border-color:red; color:red">

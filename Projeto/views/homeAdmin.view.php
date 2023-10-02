@@ -42,7 +42,7 @@
   <?php 
       $i=0;
       foreach($itens as $item => $valores){
-        if($i==3){
+        if($i==4){
           ?>
             </div>
             <div class="row mt-3">
@@ -51,7 +51,7 @@
         }
       ?>
         <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 15rem;">
         <img src="../imagens/discord.png" class="card-img-top" alt="..."  height="100">
           <div class="card-img-overlay d-flex justify-content-end align-top">
             <a href="index.php?acao=excluirItem" class="btn btn-outline-danger" style="max-height:40px">X</a>

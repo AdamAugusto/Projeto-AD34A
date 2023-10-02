@@ -67,6 +67,14 @@
                 require('controllers/carrinho.controller.php');
                 break;
                 
+            case 'minhaConta':
+                require('controllers/minhaConta.controller.php');
+                break;
+
+            case 'listaPedidos':
+                require('controllers/listaPedidos.controller.php');
+                break;
+
             default:
                 require('controllers/homePage.controller.php');
                 break;

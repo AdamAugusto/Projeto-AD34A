@@ -44,7 +44,7 @@
                     <a class="nav-link " href="#">Active</a>
                 </li>
                 <li class="nav-item flex-sm-fill text-sm-center">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="index.php?acao=minhaConta">Minha Conta</a>
                 </li>
                 <li class="nav-item flex-sm-fill text-sm-center">
                     <a class="nav-link" href="index.php?acao=cadastrar">Cadastrar Item</a>
