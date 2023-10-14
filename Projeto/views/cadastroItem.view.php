@@ -3,6 +3,14 @@
                     <input name="nomeItem" type="text" class="form-control" id="floatingNick" placeholder="Name" >
                     <label for="floatingNick" class="form-label ms-1">Nome do Produto</label>
     </div>
+    <div class="form-floating mb-2">
+                    <input name="precoItem" type="text" class="form-control" id="floatingPreco" placeholder="Name" >
+                    <label for="floatingPreco" class="form-label ms-1">Preço</label>
+    </div>
+    <div class="form-floating mb-2">
+                    <input name="quantidadeItem" type="text" class="form-control" id="floatingQuantidade" placeholder="Name" >
+                    <label for="floatingQuantidade" class="form-label ms-1">Quantidade</label>
+    </div>
     <div class=" mb-2">
         <label for="validationTextarea" class="form-label ms-1">Descrição do produto</label>
         <textarea name="descricaoItem" class="form-control" id="validationTextarea" placeholder="Required example textarea"></textarea>

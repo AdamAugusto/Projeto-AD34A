@@ -22,7 +22,7 @@
                         Excluir Carrinho
                         </button>
                     </div>
-                </div>
+            </div>
             <div class="list-group d-flex flex-sm-fill align-items-center" >
 
                 <ul class="list-group list-group-horizontal-sm">

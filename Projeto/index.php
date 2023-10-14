@@ -21,7 +21,19 @@
                 require('controllers/cadastroPage.controller.php');
                 break;
 
-            case 'erro-cadastro':
+            case 'configurarConta':
+                require('controllers/configurarConta.controller.php');
+                break;
+
+            case 'adicionarCartao':
+                require('controllers/adicionarCartao.controller.php');
+                break;
+
+            case 'cadastrarCartao':
+                require('controllers/armazenarCartao.controller.php');
+                break;
+
+            case 'erro-cadastroItem':
                 require('controllers/cadastrarItemPage.controller.php');                
                 ?>
                 <div class="justify-content-center d-flex mt-3">
@@ -32,8 +44,38 @@
                 <?php
                 break;
 
+            case 'erro-cadastro':
+                require('controllers/cadastroPage.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" style="max-height:30px; max-width:300px;">
+                        Preencha todos os campos!
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-cadastroSenha':
+                require('controllers/cadastroPage.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" style="max-height:30px; max-width:300px;">
+                        As senhas devem serem iguais!
+                    </div>
+                </div>
+                <?php
+                break;
+
             case 'cadastrarItem':
                 require('controllers/armazenarItem.controller.php');
+                break;
+
+            case 'realizarCadastro':
+                    require('controllers/realizarCadastro.controller.php');
+                    break;
+
+            case 'excluirItem':
+                require('controllers/excluirItem.controller.php');
                 break;
 
             case 'esqueciSenha':

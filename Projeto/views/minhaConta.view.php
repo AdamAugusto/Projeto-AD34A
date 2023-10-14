@@ -2,13 +2,13 @@
     <div class="col me-3 mb-3 mt-3" style="background-color: lightgray;">
         <div class="row">
             <div class="col">
-                <img src="../imagens/discord.png" class="" alt="..."  height="70">
+                <img src="../projeto/imagens/discord.png" class="" alt="..."  height="70">
             </div>
             <div class="col mt-2">
                 Bem-vindo, Usuario
             </div>
             <div class="col d-flex justify-content-end mt-3">
-                <img src="../imagens/engrenagem.png" class="" alt="..."  height="40" width="40">
+                <img onclick="window.location.href='index.php?acao=configurarConta'" src="../projeto/imagens/engrenagem.png" class="" alt="..."  height="40" width="40">
             </div>
 
         </div>
@@ -24,7 +24,10 @@
                 R$ 0,00
             </div>
             <div class="col mt-3 d-flex justify-content-end">
-            <button type="submit" class="btn d-flex justify-content-center" style=" background-color:orange; width:200px;">Adicionar Crédito</button>
+                <button type="submit" class="btn d-flex justify-content-center" style=" background-color:orange; width:200px;">Adicionar Crédito</button>
+            </div>
+            <div class="col mt-3 d-flex justify-content-end">
+                <button onclick="window.location.href='index.php?acao=adicionarCartao'" type="submit" class="btn d-flex justify-content-center" style=" background-color:orange; width:200px;">Adicionar Cartão</button>
             </div>
        </div>
     </div>
@@ -32,7 +35,7 @@
 
 <div class="row ms-3">
     <div class="col mb-2" style="padding-left: 0;">
-        <img src="../imagens/carrinho.png" class="" alt="..."  height="30" width="30">
+        <img src="../projeto/imagens/carrinho.png" class="" alt="..."  height="30" width="30">
          Resumo do seu último pedido
     </div>
 </div>

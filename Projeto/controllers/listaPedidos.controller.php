@@ -1,3 +1,3 @@
 <?php 
         require('templates/headerLogado.php');
-        require('views/listaPedidos.view.php');
+        require('views/listaPedidosAdmin.view.php');

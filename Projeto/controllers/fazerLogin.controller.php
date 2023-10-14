@@ -6,14 +6,17 @@
     
 
 
-    if($usuario == 'admin@admin.com' && $senha == '000000'){
+    if($usuario == 'admin@admin.com' && $senha == '123456'){
         $_SESSION['logado'] = true;
         $_SESSION['usuario'] = 'administrador';
         $_SESSION['test'] = false;
         //header('Location: index.php');
         require('controllers/homePage.controller.php');
 
-    }else if(!empty($_POST)){
-        $erro = true;
-        header('Location: index.php?acao=loginErro');
+    }else {
+            header('Location: index.php?acao=loginErro');
+            if(!empty($_POST)){
+                $erro = true;
+                header('Location: index.php?acao=loginErro');
+        }
     }
