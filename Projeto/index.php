@@ -33,6 +33,17 @@
                 require('controllers/armazenarCartao.controller.php');
                 break;
 
+            case 'erro-usuarioJaExiste':
+                require('controllers/cadastroPage.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert" style="max-height:30px; max-width:300px;">
+                        Já Existe uma Conta com este e-mail!
+                    </div>
+                </div>
+                <?php
+                break;
+
             case 'erro-cadastroItem':
                 require('controllers/cadastrarItemPage.controller.php');                
                 ?>

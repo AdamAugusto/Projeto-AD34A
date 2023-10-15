@@ -11,12 +11,22 @@
     }
     else{
             if($senha1 == $senha2){
-                $query = $bd->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(:nome, :email, :senha)");
-                $query->bindParam(':nome', $nome);
-                $query->bindParam(':email', $email);
-                $query->bindParam(':senha', $senha1);
+                $query = $bd->prepare('SELECT * FROM usuarios');
                 $query->execute();
-                header('Location: index.php?acao=home');
+                $usuarios = $query->fetchAll(PDO::FETCH_OBJ);
+                foreach($usuarios as $usuario){
+                    if($usuario->email == $email){
+                        header('Location: index.php?acao=erro-usuarioJaExiste');
+                    }
+                    else{
+                        $query = $bd->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(:nome, :email, :senha)");
+                        $query->bindParam(':nome', $nome);
+                        $query->bindParam(':email', $email);
+                        $query->bindParam(':senha', $senha1);
+                        $query->execute();
+                        header('Location: index.php?acao=home');
+                    }
+                }
             }
             else{
                 header('Location: index.php?acao=erro-cadastroSenha');

@@ -6,6 +6,7 @@
         private $descricao;
         private $imagem;
         private $categoria;
+        private $id;
 
         public function __construct($nome, $preco, $quantidade, $descricao, $categoria){
             $this->nome = $nome;
