@@ -34,7 +34,7 @@
                 </form>
             </div>
             <div class="container-right">
-                <div class="card">
+                <div class="cardz">
                     <div class="intern">
                         <img class="approximation" src="../projeto/imagens/aprox.png" alt="aproximation">
                         <div class="card-number">
@@ -122,11 +122,5 @@
                 } else {
                     cardCVVText.innerHTML = e.target.value;
                 }
-            })
-
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-
-                alert("Credit Card Added!");
             })
 </script>

@@ -66,6 +66,28 @@
                 <?php
                 break;
 
+            case 'erro-cadastro-cartao':
+                require('controllers/adicionarCartao.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Preencha todos os campos!
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-cadastro-cartao-admin':
+                require('controllers/adicionarCartao.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Administradores Não podem Cadastrar um Cartão
+                    </div>
+                </div>
+                <?php
+                break;
+
             case 'erro-cadastroSenha':
                 require('controllers/cadastroPage.controller.php');                
                 ?>

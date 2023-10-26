@@ -58,7 +58,7 @@
       ?>
         <div class="col">
         <div class="card" style="width: 15rem;">
-        <img src="../imagens/discord.png" class="card-img-top" alt="..."  height="100">
+        <img src="../projeto/imagens/discord.png" class="card-img-top" alt="..."  height="100">
           <div class="card-img-overlay d-flex justify-content-end align-top">
             <a href="index.php?acao=excluirItem&id=<?=$produto->id;?>" class="btn btn-outline-danger" style="max-height:40px">X</a>
           </div>
@@ -66,7 +66,7 @@
             <h5 class="card-title"><?= $produto->nome?></h5>
             <p class="card-text"><?= $produto->descricao?></p>
             <p class="card-text">R$ <?= $produto->preco?>,00</p>
-            <a href="index.php?acao=comprar/?id=<?=$produto->id;?>" class="btn" style="background-color:orange">Comprar</a>
+            <a href="index.php?acao=comprar&?id=<?=$produto->id;?>" class="btn" style="background-color:orange">Comprar</a>
           </div>
         </div>
         </div>          

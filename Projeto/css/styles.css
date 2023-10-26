@@ -38,7 +38,7 @@ body {
     align-items: center;
 }
 
-.card {
+.cardz1 {
     width: 420px;
     height: 230px;
     margin: 0 auto;
@@ -91,7 +91,7 @@ body {
     flex-direction: column;
     gap: 15px;
     font-size: 1.1rem;
-    color: white;
+    color: orange;
     text-transform: uppercase;
 }
 
@@ -104,12 +104,12 @@ body {
     width: 50%;
 }
 
-input {
+input{
     border: 0;
     border-radius: 5px;
     padding: 10px;
     background-color: white;
-    color: white;
+    color: orange;
     font-weight: 600;
     font-size: 1.1rem;
     outline: 0;
