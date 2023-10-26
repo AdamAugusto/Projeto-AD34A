@@ -18,36 +18,53 @@
             <div class="d-flex justify-content-between mt-3 ms-3 me-3 mb-3 pt-1">
                     <b>Carrinho</b>
                     <div class=" ">
-                        <button type="submit" class="btn btn-outline  justify-content-center" style="background-color:white; border-color:red; color:red">
+                        <button type="submit" 
+                                onclick="window.location.href='index.php?acao=excluirCarrinho'"
+                                class="btn btn-outline  justify-content-center" 
+                                style="background-color:white; border-color:red; color:red">
                         Excluir Carrinho
                         </button>
                     </div>
             </div>
-            <div class="list-group d-flex flex-sm-fill align-items-center" >
 
+        
+            <div class="list-group d-flex flex-sm-fill align-items-center" >
+                <?php 
+                    $totalTotal=0;
+                    foreach($osProdutos as $oProduto):
+                        $total=$oProduto['preco']*$oProduto['quantidade'];
+                        $totalTotal+=$total;
+                ?>
                 <ul class="list-group list-group-horizontal-sm">
-                    <li class="list-group-item align-middle " style="width: 90px">An item</li>
-                    <li class="list-group-item" style="width: 575px">
+                    <li class="list-group-item d-flex justify-content-center align-middle" style="width: 90px">
+                        <?=$oProduto['nome']?>
+                    </li>
+                    <li class="d-flex list-group-item " style="width: 575px">
                         <div class="ms-2 me-auto">
-                        <div class="fw-bold">Subheading </div>
-                                preço a vista
-                                <br>
-                                preço parcelado
+                        <div class="fw-bold">Preço</div>
+                                R$ <?=number_format($oProduto['preco'],2,',',"")?>
                         </div>
                     </li>
-                    <li class="list-group-item" style="width: 130px">
-                        <div class="ms-2 me-auto">
-                            <div class="">alterar </div>
-                                remover 
+                    <li class="list-group-item align-middle" style="width: 130px">
+                        <div class="mt-3">
+                            <div class="d-flex justify-content-center"><?=$oProduto['quantidade']?></div>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-outline  justify-content-center" 
+                                        onclick="window.location.href='index.php?acao=removerItem&id=<?=$oProduto['id']?>'"
+                                        style="background-color:white; border-color:red; color:red">
+                                    remover
+                                </button>
+                        </div>
                         </div>
                     </li>
                     <li class="list-group-item" style="width: 280px">
                         <div class="ms-2 me-auto">
-                            <div class="">preço a vista no pix</div>
-                                preço
+                            <div class="">preço total a vista no pix <br>R$ <?=number_format($total*0.9,2,',',"")?></div>
+                                preço total <br>R$ <?=number_format($total,2,',',"")?>
                         </div>
                     </li>
                 </ul>
+                <?php endforeach?>
                 <ul class="list-group list-group-horizontal-sm mb-3">
                     <li class="list-group-item align-middle " style="width: 90px">
                     Final
@@ -63,11 +80,12 @@
 
                     <li class="list-group-item" style="width: 280px">
                         <div class="ms-2 me-auto">
-                        valor total:
+                        valor total: R$ <?=number_format($totalTotal,2,',',"")?>
                         </div>
                     </li>
                 </ul>
             </div>
+            
         </div>
     </div>
 
@@ -75,14 +93,14 @@
      
             <ul class="list-group list-group-flush mt-3" style="width: 320px;" >
                 <li class="list-group-item align-items-start" style=" background-color:lightgrey!important">Resumo</li>
-                <li class="list-group-item mt-2 d-flex justify-content-between" style=" background-color:lightgrey!important"><a>Valor dos produtos:</a> R$ 00,00</li>
+                <li class="list-group-item mt-2 d-flex justify-content-between" style=" background-color:lightgrey!important"><a>Valor dos produtos:</a> R$ <?=number_format($totalTotal,2,',',"")?></li>
                 <li class="list-group-item d-flex justify-content-between" style=" background-color:lightgrey!important"><a>Frete:</a> R$ 00,00</li>
-                <li class="list-group-item d-flex justify-content-between" style=" background-color:lightgrey!important"><a>Total a prazo:</a> R$ 00,00</li>
+                <li class="list-group-item d-flex justify-content-between" style=" background-color:lightgrey!important"><a>Total a prazo:</a> R$ <?=number_format($totalTotal,2,',',"")?></li>
                 <li class="list-group-item d-flex justify-content-center" style=" background-color:lightgrey!important">(tantas vezes sem juros)</li>
                 <li class="list-group-item d-flex justify-content-center mt-3" style=" background-color:lightgreen!important; padding:0px;">
                     <ul style="padding:0px">
                         <li class=" d-flex justify-content-center">valor a vista no pix:</li>
-                        <li class=" d-flex justify-content-center">R$ 00,00</li>
+                        <li class=" d-flex justify-content-center">R$ <?=number_format($totalTotal*0.9,2,',',"")?></li>
                         <li class=" d-flex justify-content-center">Economize tanto</li>
                     </ul>
                 </li>

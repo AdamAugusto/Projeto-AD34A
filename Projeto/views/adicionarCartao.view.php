@@ -34,7 +34,7 @@
                 </form>
             </div>
             <div class="container-right">
-                <div class="cardz">
+                <div class="cardz1">
                     <div class="intern">
                         <img class="approximation" src="../projeto/imagens/aprox.png" alt="aproximation">
                         <div class="card-number">

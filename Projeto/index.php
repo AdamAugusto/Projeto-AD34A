@@ -141,6 +141,14 @@
             case 'carrinho':
                 require('controllers/carrinho.controller.php');
                 break;
+
+            case 'removerItem':
+                require('controllers/carrinho.controller.php');
+                break;
+
+            case 'excluirCarrinho':
+                require('controllers/carrinho.controller.php');
+                break;
                 
             case 'minhaConta':
                 require('controllers/minhaConta.controller.php');

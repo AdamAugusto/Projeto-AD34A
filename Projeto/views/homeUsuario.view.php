@@ -63,7 +63,7 @@
               <h5 class="card-title"><?= $produto->nome?></h5>
               <p class="card-text"><?= $produto->descricao?></p>
               <p class="card-text">R$ <?= $produto->preco?>,00</p>
-              <a href="index.php?acao=comprar&?id=<?=$produto->id;?>" class="btn" style="background-color:orange">Comprar</a>
+              <a href="index.php?acao=comprar&id=<?=$produto->id;?>" class="btn" style="background-color:orange">Comprar</a>
             </div>
           </div>
           </div>          
