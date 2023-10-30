@@ -1,6 +1,6 @@
  <div class="row ms-3 me-3">
-    <div class="col me-3 mb-3 mt-3" style="background-color: lightgray;">
-        <div class="row">
+    <div class="col me-3 mb-3 mt-3">
+        <div class="row" style="background-color: lightgray;">
             <div class="col">
                 <img src="../projeto/imagens/discord.png" class="" alt="..."  height="70">
             </div>
@@ -26,9 +26,44 @@
             <div class="col mt-3 d-flex justify-content-end">
                 <button type="submit" class="btn d-flex justify-content-center" style=" background-color:orange; width:200px;">Adicionar Crédito</button>
             </div>
+            <?php if(sizeof($o_cartao)==0):?>
             <div class="col mt-3 d-flex justify-content-end">
                 <button onclick="window.location.href='index.php?acao=adicionarCartao'" type="submit" class="btn d-flex justify-content-center" style=" background-color:orange; width:200px;">Adicionar Cartão</button>
             </div>
+            <?php else: 
+                    foreach($o_cartao as $o_cartao_item):
+            ?>
+       </div>
+       <div class="row">
+            <div class="col mt-2 mb-2">
+                <div class="cardz1">
+                    <div class="intern">
+                        <img class="approximation" src="../projeto/imagens/aprox.png" alt="aproximation">
+                        <div class="card-number">
+                            <div class="number-vl"><?=$o_cartao_item->numero?></div>
+                        </div>
+                        <div class="card-holder">
+                            <label> </label>
+                            <div class="name-vl"><?=$o_cartao_item->titular?></div>
+                        </div>
+                        <div class="card-infos">
+                            <div class="exp">
+                                <label>VALIDADE</label>
+                                <div class="expiration-vl"><?=$o_cartao_item->validade?></div>
+                            </div>
+                            <div class="cvv">
+                                <label>CVV</label>
+                                <div class="cvv-vl"><?=$o_cartao_item->codigo?></div>
+                            </div>
+                        </div>
+                        <img class="chip" src="../projeto/imagens/chip.png" alt="chip">
+                    </div>
+                </div>
+            </div>
+            <?php
+                    endforeach; 
+                endif;
+            ?>
        </div>
     </div>
 </div>

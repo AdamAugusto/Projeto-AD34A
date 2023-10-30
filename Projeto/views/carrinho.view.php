@@ -101,7 +101,7 @@
                     <ul style="padding:0px">
                         <li class=" d-flex justify-content-center">valor a vista no pix:</li>
                         <li class=" d-flex justify-content-center">R$ <?=number_format($totalTotal*0.9,2,',',"")?></li>
-                        <li class=" d-flex justify-content-center">Economize tanto</li>
+                        <li class=" d-flex justify-content-center">Economize R$ <?=number_format($totalTotal*0.1,2,',',"")?></li>
                     </ul>
                 </li>
                 <li class="d-flex justify-content-center mt-3">

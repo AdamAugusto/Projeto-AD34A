@@ -1,6 +1,6 @@
 <div class="row ms-3">
     <div class="col mb-2" style="padding-left: 0;">
-        <img src="../imagens/carrinho.png" class="" alt="..."  height="30" width="30">
+        <img src="../projeto/imagens/carrinho.png" class="" alt="..."  height="30" width="30">
          Pedidos
     </div>
 </div>

@@ -104,7 +104,7 @@
                 break;
 
             case 'realizarCadastro':
-                    require('controllers/realizarCadastro.controller.php');
+                    require('controllers/armazenarCadastro.controller.php');
                     break;
 
             case 'excluirItem':
@@ -156,6 +156,14 @@
 
             case 'listaPedidos':
                 require('controllers/listaPedidos.controller.php');
+                break;
+
+            case 'adicionarEndereco':
+                require('controllers/adicionarEndereco.controller.php');
+                break;
+
+            case 'armazenarEndereco':
+                require('controllers/armazenarEndereco.controller.php');
                 break;
 
             default:
