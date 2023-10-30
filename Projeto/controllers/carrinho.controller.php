@@ -48,6 +48,7 @@
                                 if($osProdutos[$z]['id']==$id){
                                     $indice=$z;
                                     $b=TRUE;
+                                    break;
                                 }else{
                                     $m++;
                                 }

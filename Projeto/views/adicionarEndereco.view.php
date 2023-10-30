@@ -8,7 +8,7 @@
         <div class="col ms-2" style="background-color: lightgray; height:auto">
             <img src="../projeto/imagens/carrinho.png" class="" alt="..."  height="30" width="30">
             Dados Básicos
-            <form class="row mb-2"  action="index.php?acao=realizarCadastro" method="POST">
+            <form class="row mb-2"  action="index.php?acao=editarCadastro" method="POST">
                 <div class="form-floating mb-2">
                     <input name="nome" type="text" class="form-control" id="floatingNick" placeholder="Name" value="<?=$_SESSION['usuario']?>">
                     <label for="floatingNick" class="form-label ms-1">Name</label>
@@ -18,10 +18,10 @@
                     <label for="floatingInput" class="form-label ms-1">Email address</label>
                 </div>
                 <div class="d-grid gap-2 col">
-                        <button class="btn btn-primary" type="submit">Excluir Minha Conta</button>
+                        <button class="btn btn-primary" disabled type="submit">Excluir Minha Conta</button>
                 </div>
                 <div class="d-grid gap-2 col">
-                        <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+                        <button class="btn btn-primary"  disabled type="submit">Salvar Alterações</button>
                 </div>               
             </form>
         </div>
@@ -29,14 +29,15 @@
             <img src="../projeto/imagens/carrinho.png" class="" alt="..."  height="30" width="30">
             Endereços
             <div class="row mb-2 d-flex justify-content-center" >
-                <form class="row d-flex justify-content-center"  action="index.php?acao=armazenarEndereco" method="POST">
+                <?php if($verificador):?>
+                <form class="row d-flex justify-content-center"  action="index.php?acao=editarEndereco" method="POST">
                     <div class="form-floating mb-2">
-                        <a>Adicionar Endereço</a>
+                        <a>Editar Endereço</a>
                     </div>
                     <select class="form-select mb-2 " name="estado" id="estado" style="width:690px">
                         <option selected>Escolha seu UF</option>
                         <?php foreach($estados as $estados): ?>
-                        <option value="1"><?=$estados?></option>
+                        <option value="<?=$estados?>"><?=$estados?></option>
                         <?php endforeach;?>
                     </select>
                     <div class="form-floating mb-2">
@@ -61,10 +62,48 @@
                         <label for="floatingComplemento" class="form-label ms-1">Complemento</label>
                     </div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="submit">Cadastrar</button>
+                            <button class="btn btn-primary" type="submit">Salvar</button>
                         </div>
                                 
                 </form>
+                <?php else:?>
+                    <form class="row d-flex justify-content-center"  action="index.php?acao=armazenarEndereco" method="POST">
+                        <div class="form-floating mb-2">
+                            <a>Adicionar Endereço</a>
+                        </div>
+                        <select class="form-select mb-2 " name="estado" id="estado" style="width:690px">
+                            <option selected>Escolha seu UF</option>
+                            <?php foreach($estados as $estados): ?>
+                            <option value="<?=$estados?>"><?=$estados?></option>
+                            <?php endforeach;?>
+                        </select>
+                        <div class="form-floating mb-2">
+                            <input name="cidade" type="text" class="form-control" id="floatingCidade" placeholder="">
+                            <label for="floatingCidade" class="form-label ms-1">Cidade</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input name="bairro" type="text" class="form-control" id="floatingBairro" placeholder="">
+                            <label for="floatingBairro" class="form-label ms-1">Bairro</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input name="rua" type="text" class="form-control" id="floatingRua" placeholder="">
+                            <label for="floatingRua" class="form-label ms-1">Rua</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input name="numero" type="text" class="form-control" id="floatingNumero" placeholder="">
+                            <label for="floatingNumero" class="form-label ms-1">Numero</label>
+                        </div>
+                        
+                        <div class="form-floating mb-2">
+                            <input name="complemento" type="text" class="form-control" id="floatingComplemento" placeholder="">
+                            <label for="floatingComplemento" class="form-label ms-1">Complemento</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit">Cadastrar</button>
+                         </div>
+                                    
+                    </form>
+                <?php endif;?>
             </div>
         </div>
 </div>

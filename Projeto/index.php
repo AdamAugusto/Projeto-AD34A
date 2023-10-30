@@ -77,12 +77,67 @@
                 <?php
                 break;
 
+            case 'erro-cadastro-endereco':
+                require('controllers/adicionarEndereco.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Preencha todos os campos!
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-editar-cadastro':
+                require('controllers/configurarConta.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Preencha pelo menos um dos Campos
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-finalizar-compra':
+                require('controllers/carrinho.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Adicione Pelo Menos um Item ao Carrinho
+                    </div>
+                </div>
+                <?php
+                break;
+
             case 'erro-cadastro-cartao-admin':
                 require('controllers/adicionarCartao.controller.php');                
                 ?>
                 <div class="justify-content-center d-flex mt-3">
                     <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
                         Administradores Não podem Cadastrar um Cartão
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-editar-cadastro-admin':
+                require('controllers/configurarConta.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Administradores Não podem Editar seus Dados
+                    </div>
+                </div>
+                <?php
+                break;
+
+            case 'erro-cadastro-endereco-admin':
+                require('controllers/adicionarEndereco.controller.php');                
+                ?>
+                <div class="justify-content-center d-flex mt-3">
+                    <div class="alert alert-danger d-flex align-items-center justify-content-center" role="alert">
+                        Administradores Não podem Cadastrar um Endereço
                     </div>
                 </div>
                 <?php
@@ -105,6 +160,10 @@
 
             case 'realizarCadastro':
                     require('controllers/armazenarCadastro.controller.php');
+                    break;
+
+            case 'excluirEndereco':
+                    require('controllers/excluirEndereco.controller.php');
                     break;
 
             case 'excluirItem':
@@ -164,6 +223,22 @@
 
             case 'armazenarEndereco':
                 require('controllers/armazenarEndereco.controller.php');
+                break;
+
+            case 'editarEndereco':
+                require('controllers/editarEndereco.controller.php');
+                break;
+
+            case 'editarCadastro':
+                require('controllers/editarCadastro.controller.php');
+                break;
+
+            case 'excluirConta':
+                require('controllers/excluirConta.controller.php');
+                break;
+
+            case 'finalizarCompra':
+                require('controllers/armazenarPedido.controller.php');
                 break;
 
             default:

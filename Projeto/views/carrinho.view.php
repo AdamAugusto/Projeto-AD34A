@@ -106,12 +106,18 @@
                 </li>
                 <li class="d-flex justify-content-center mt-3">
                     <div class=" d-flex flex-sm-fill">
-                        <button type="submit" class="btn d-flex flex-sm-fill justify-content-center" style=" background-color:orange;">Finalizar Compra</button>
+                        <button type="button" 
+                                class="btn d-flex flex-sm-fill justify-content-center" 
+                                style=" background-color:orange;"
+                                onclick="window.location.href='index.php?acao=finalizarCompra'">Finalizar Compra</button>
                     </div>
                 </li>
                 <li class="d-flex justify-content-center mt-3">
                     <div class=" d-flex flex-sm-fill">
-                        <button type="submit" class="btn btn-outline d-flex flex-sm-fill justify-content-center" style="background-color:white; border-color:orange; color:orange">Continuar Comprando</button>
+                        <button type="button" 
+                                class="btn btn-outline d-flex flex-sm-fill justify-content-center"
+                                style="background-color:white; border-color:orange; color:orange"
+                                onclick="window.location.href='index.php?acao=home'">Continuar Comprando</button>
                     </div>
                 </li>
             </ul>
