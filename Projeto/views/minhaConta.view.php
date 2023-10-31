@@ -80,36 +80,43 @@
                 <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group-item align-middle" style="width: 370px;">
                         <div class="fw-bold">Número do Pedido</div>
-                            #000000
+                            <?=$o_pedido->id?>
                         
                     </li>
                     <li class="list-group-item" style="width: 370px;">
                         <div class="ms-2 me-auto">
                         <div class="fw-bold">Status</div>
-                                Concluido
+                            <?=$o_pedido->status?>
                         </div>
                     </li>
                     <li class="list-group-item" style="width: 370px;">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold">Data</div>
-                                13/04/2021
+                                <?=$o_pedido->data?>
                         </div>
                     </li>
                     <li class="list-group-item" style="width: 370px;">
                         <div class="ms-2 me-auto">
                             <div class="fw-bold">Pagamento</div>
-                                Pix
+                                Cartão
                         </div>
                     </li>
                 </ul>
                 <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group-item align-middle" style="width: 740px;">
-                        Endereço
+                    <div class="fw-bold">Endereço</div>
+                        
+                        <?=$o_endereco->bairro?>
+                        <?=$o_endereco->rua?>
+                        <?=$o_endereco->numero?>,
+                        
+                        <?=$o_endereco->cidade?>
+                        <?=$o_endereco->estado?>
                     </li>
                     <li class="list-group-item" style="width: 740px;">
                         <div class="ms-2 me-auto">
                         <div class="fw-bold">Transportadora </div>
-                            Código do envio
+                            <?=$o_pedido->transportadora?>
                         </div>
                     </li>
                 </ul>

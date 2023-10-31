@@ -217,6 +217,10 @@
                 require('controllers/listaPedidos.controller.php');
                 break;
 
+            case 'editarStatusPedido':
+                require('controllers/editarStatusPedido.controller.php');
+                break;
+
             case 'adicionarEndereco':
                 require('controllers/adicionarEndereco.controller.php');
                 break;

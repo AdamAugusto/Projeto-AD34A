@@ -45,10 +45,10 @@
             </div>
             <ul class="nav nav-underline flex-sm-fill text-sm-center">
                 <li class="nav-item flex-sm-fill text-sm-center">
-                    <a class="nav-link " href="#">Active</a>
+                    <a class="nav-link " href="index.php?acao=listaPedidos">Pedidos</a>
                 </li>
                 <li class="nav-item flex-sm-fill text-sm-center">
-                    <a class="nav-link" href="index.php?acao=minhaConta">Minha Conta</a>
+                    <a class="nav-link" href="index.php?acao=home">Home</a>
                 </li>
                 <li class="nav-item flex-sm-fill text-sm-center">
                     <a class="nav-link" href="index.php?acao=cadastrar">Cadastrar Item</a>

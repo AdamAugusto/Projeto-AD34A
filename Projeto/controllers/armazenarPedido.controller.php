@@ -48,6 +48,15 @@
             $query->bindParam(':usuario_id', $_SESSION['idUsuario']);
             $query->bindParam(':cartao_id', $o_cartao->id);
             $query->execute();
+            $idPedido=$bd->lastInsertId();
+            foreach($produtosDoPedido as $produto){
+                $query = $bd->prepare("INSERT INTO pedido_item (quantidade, item_id, pedido_id) 
+                VALUES(:quantidade, :item_id, :pedido_id)");
+                $query->bindParam(':quantidade', $produto['quantidade']);
+                $query->bindParam(':item_id', $produto['id']);
+                $query->bindParam(':pedido_id', $idPedido);
+                $query->execute();
+            }
             $_SESSION['carrinho']=[];
             header('Location: index.php?acao=home');
     }
