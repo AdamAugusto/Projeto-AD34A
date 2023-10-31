@@ -4,7 +4,11 @@
         //echo ($_SESSION['logado']);
     }else{
         if($_SESSION['logado'] == true){
-            require('templates/headerLogado.php');
+            if(isset($_SESSION['idUsuario'])){
+                require('templates/headerLogadoUsuario.php');
+            }else{
+                require('templates/headerLogado.php');
+            }            
         }else{
             require('templates/header.php');
         } 
@@ -67,5 +71,5 @@
                 $i+=1;
                 
             }
-}
+    }
     require('views/carrinho.view.php');

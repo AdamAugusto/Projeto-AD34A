@@ -35,7 +35,7 @@
                     <ul class="nav nav-underline flex-sm-fill">
                         <li class="nav-item flex-sm-fill">foto</li>
                         <li class="nav-item ">
-                            <a class="nav-link" href="#"><?= $_SESSION['usuario']?></a>
+                            <a class="nav-link" href="index.php?acao=minhaConta"><?= $_SESSION['usuario']?></a>
                             
                         </li class="nav-item flex-sm-fill">
                         <li><a class="nav-link" href="index.php?acao=logout">Logout</a></li>

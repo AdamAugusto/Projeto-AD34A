@@ -22,7 +22,7 @@
         $query->bindParam(':id', $o_pedido->endereco_id);
         $query->execute();
         $o_endereco=$query->fetch(PDO::FETCH_OBJ);
-        require('templates/headerLogado.php');
+        require('templates/headerLogadoUsuario.php');
         require('views/minhaConta.view.php');
     }
     

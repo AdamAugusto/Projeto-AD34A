@@ -109,7 +109,7 @@
                         <button type="button" 
                                 class="btn d-flex flex-sm-fill justify-content-center" 
                                 style=" background-color:orange;"
-                                onclick="window.location.href='index.php?acao=finalizarCompra'">Finalizar Compra</button>
+                                onclick="window.location.href='index.php?acao=armazenarPedido'">Finalizar Compra</button>
                     </div>
                 </li>
                 <li class="d-flex justify-content-center mt-3">
