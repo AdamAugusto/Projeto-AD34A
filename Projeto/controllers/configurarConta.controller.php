@@ -10,7 +10,7 @@
         $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
         $query->execute();
         $o_endereco=$query->fetchAll(PDO::FETCH_OBJ);
-        require('templates/headerLogado.php');
+        require('templates/headerLogadoUsuario.php');
         require('views/configurarConta.view.php');
     }
     

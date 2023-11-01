@@ -17,11 +17,15 @@
         $query = $bd->prepare('SELECT * FROM pedido WHERE id = :id');
         $query->bindParam(':id', $o_pedido_id['MAX(id)']);
         $query->execute();
-        $o_pedido=$query->fetch(PDO::FETCH_OBJ);
-        $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
-        $query->bindParam(':id', $o_pedido->endereco_id);
-        $query->execute();
-        $o_endereco=$query->fetch(PDO::FETCH_OBJ);
+        $o_pedido=$query->fetchAll(PDO::FETCH_OBJ);
+        if(sizeof($o_pedido)== 0){
+
+        }else{
+            $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
+            $query->bindParam(':id', $o_pedido->endereco_id);
+            $query->execute();
+            $o_endereco=$query->fetch(PDO::FETCH_OBJ);
+        }
         require('templates/headerLogadoUsuario.php');
         require('views/minhaConta.view.php');
     }

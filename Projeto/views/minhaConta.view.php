@@ -74,6 +74,11 @@
          Resumo do seu último pedido
     </div>
 </div>
+<?php if(sizeof($o_pedido)==0):
+    
+else:
+foreach($o_pedido as $o_pedido):
+?>
 <div class="row ms-3 me-3 d-flex flex-fill">
         <div class="col" style="background-color: lightgray;">
             <div class="list-group d-flex flex-sm-fill align-items-center mt-2 mb-2" >
@@ -126,3 +131,7 @@
             </div>
         </div>
 </div>
+<?php 
+endforeach;
+endif;
+?>
