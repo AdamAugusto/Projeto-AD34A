@@ -52,7 +52,7 @@
                 $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
                 $query->execute();
                 $o_endereco=$query->fetch(PDO::FETCH_OBJ);
-                if(!(isset($o_endereco->$id))){
+                if(!(isset($o_endereco->id))){
                     header('Location: index.php?acao=adicionarEndereco');
                 }
                 else{
