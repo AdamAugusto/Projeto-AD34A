@@ -21,10 +21,13 @@
         if(sizeof($o_pedido)== 0){
 
         }else{
-            $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
-            $query->bindParam(':id', $o_pedido->endereco_id);
-            $query->execute();
-            $o_endereco=$query->fetch(PDO::FETCH_OBJ);
+            foreach($o_pedido as $pedido){
+                $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
+                $query->bindParam(':id', $pedido->endereco_id);
+                $query->execute();
+                $o_endereco=$query->fetch(PDO::FETCH_OBJ);
+            }  
+
         }
         require('templates/headerLogadoUsuario.php');
         require('views/minhaConta.view.php');
