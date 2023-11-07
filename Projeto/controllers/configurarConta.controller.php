@@ -4,12 +4,9 @@
         require('templates/headerLogado.php');
         require('views/configurarConta.view.php');
     }else{
-        require_once('repositorios/produtos.conexao.php');
-        $bd = Conexao::get();
-        $query = $bd->prepare('SELECT * FROM endereco WHERE usuario_id = :idUsuario');
-        $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
-        $query->execute();
-        $o_endereco=$query->fetchAll(PDO::FETCH_OBJ);
+        require('models/endereco.model.php');
+        $teste = new Endereco();
+        $o_endereco=$teste->selectVariosbyUsuarioId();
         require('templates/headerLogadoUsuario.php');
         require('views/configurarConta.view.php');
     }

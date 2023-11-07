@@ -4,29 +4,19 @@
         session_destroy();
         require('loginPage.controller.php');
     }else{
-        require_once('repositorios/produtos.conexao.php');
-        $bd = Conexao::get();
-        $query = $bd->prepare('SELECT * FROM cartao WHERE usuario_id = :idUsuario');
-        $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
-        $query->execute();
-        $o_cartao=$query->fetchAll(PDO::FETCH_OBJ);
-        $query = $bd->prepare('SELECT MAX(id) FROM pedido WHERE usuario_id = :idUsuario');
-        $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
-        $query->execute();
-        $o_pedido_id=$query->fetch(PDO::FETCH_ASSOC);
-        $query = $bd->prepare('SELECT * FROM pedido WHERE id = :id');
-        $query->bindParam(':id', $o_pedido_id['MAX(id)']);
-        $query->execute();
-        $o_pedido=$query->fetchAll(PDO::FETCH_OBJ);
-        if(sizeof($o_pedido)== 0){
+        require('models/endereco.model.php');
+        require('models/cartao.model.php');
+        require('models/pedido.model.php');
+        $testeCartao = new Cartao();
+        $o_cartao=$testeCartao->selectVariosbyUsuarioId();
+        $testePedido = new Pedido();
+        $o_pedido_id= $testePedido->selectUltimoPedido();
+        $o_pedido=$testePedido->selectPedidobyId($o_pedido_id['MAX(id)']);
+        if(!(isset($o_pedido->id))){
 
         }else{
-            foreach($o_pedido as $pedido){
-                $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
-                $query->bindParam(':id', $pedido->endereco_id);
-                $query->execute();
-                $o_endereco=$query->fetch(PDO::FETCH_OBJ);
-            }  
+                $testeEndereco = new Endereco();
+                $o_endereco=$testeEndereco->selectbyId($o_pedido->endereco_id);
 
         }
         require('templates/headerLogadoUsuario.php');

@@ -1,6 +1,5 @@
 <?php
-    require_once("repositorios/produtos.conexao.php");
-    $bd = Conexao::get();
+    require('models/usuario.model.php');
     $usuario = addslashes($_POST['usuario']) ?? '';
     $senha = addslashes($_POST['senha']) ?? '';
     $erro = false;
@@ -14,12 +13,9 @@
         header('Location: index.php?acao=home');
 
     }else{
-        $query = $bd->prepare('SELECT * FROM usuarios WHERE email = :email AND senha = :senha');
-        $query->bindParam(':email', $usuario);
-        $query->bindParam(':senha', $senha);
-        $query->execute();
-        if($query->rowCount()>0){
-            $o_usuario = $query->fetch(PDO::FETCH_OBJ);
+            $teste = new Usuario();
+            $o_usuario = $teste->fazerLogin($usuario, $senha);
+        if($o_usuario){
             $_SESSION['logado'] = true;
             $_SESSION['usuario'] = $o_usuario->nome;
             $_SESSION['idUsuario'] = $o_usuario->id;

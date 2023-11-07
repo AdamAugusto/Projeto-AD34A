@@ -18,8 +18,8 @@
         $osProdutos=[];
     }
     else{
-            require_once('repositorios/produtos.conexao.php');
-            $bd = Conexao::get();
+
+            require('models/produto.model.php');
             $acaozinha = $_GET['acao'] ?? '';
             $id = $_GET['id'] ?? '';
             if($acaozinha=='removerItem'){
@@ -39,10 +39,8 @@
             foreach($carrinhoArray as $id){
                 
                 if($i==0){
-                    $query = $bd->prepare('SELECT * FROM produto WHERE id = :id');
-                    $query->bindParam(':id', $id);
-                    $query->execute();
-                    array_push($osProdutos, $query->fetch(PDO::FETCH_ASSOC));
+                    $teste = new Produto();
+                    array_push($osProdutos, $teste->selectUmProduto($id));
                     $osProdutos[$i]['quantidade']=1;
                 }else {if(array_key_exists(0, $osProdutos)){
                             $b=FALSE;
@@ -60,10 +58,8 @@
                             if($b){
                                 $osProdutos[$indice]['quantidade']+=1;
                             }else{
-                                $query = $bd->prepare('SELECT * FROM produto WHERE id = :id');
-                                $query->bindParam(':id', $id);
-                                $query->execute();
-                                array_push($osProdutos, $query->fetch(PDO::FETCH_ASSOC));
+                                $teste = new Produto();
+                                array_push($osProdutos, $teste->selectUmProduto($id));
                                 $osProdutos[$m]['quantidade']=1;
                             }
                     }

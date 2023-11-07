@@ -1,8 +1,6 @@
 <?php
-    require_once("repositorios/produtos.conexao.php");
-    $bd = Conexao::get();
-    $query = $bd->prepare("DELETE FROM produto WHERE id = :id");
+    require('models/produto.model.php');
     $id = $_GET['id'] ?? '';
-    $query->bindParam(':id', $id);
-    $query->execute();
+    $teste = new Produto();
+    $teste->excluirProduto($id);
     header('Location: index.php?acao=home');

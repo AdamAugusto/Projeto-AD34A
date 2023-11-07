@@ -1,6 +1,5 @@
 <?php 
-        require_once("repositorios/produtos.conexao.php");
-        $bd = Conexao::get();
+        require('models/endereco.model.php');
         $estado = $_POST['estado'] ?? '';
         $cidade = $_POST['cidade'] ?? '';;
         $bairro = $_POST['bairro'] ?? '';
@@ -15,26 +14,13 @@
                 header('Location: index.php?acao=erro-cadastro-endereco-admin');
             }else{
                 if($complemento== ''){
-                    $query = $bd->prepare("UPDATE endereco SET estado= :estado, cidade= :cidade, bairro= :bairro, rua= :rua, numero= :numero WHERE usuario_id = :id");
-                    $query->bindParam(':id', $_SESSION['idUsuario']);
-                    $query->bindParam(':estado', $estado);
-                    $query->bindParam(':cidade', $cidade);
-                    $query->bindParam(':bairro', $bairro);
-                    $query->bindParam(':rua', $rua);
-                    $query->bindParam(':numero', $numero);
-                    $query->execute();
+                    $teste = new Endereco();
+                    $teste->editaEndereco($estado, $cidade, $bairro, $rua, $numero);
                     header('Location: index.php?acao=configurarConta');
                     }
                     else{
-                        $query = $bd->prepare("UPDATE endereco SET estado= :estado, cidade= :cidade, bairro= :bairro, rua= :rua, numero= :numero, complemento= :complemento WHERE usuario_id = :id");
-                        $query->bindParam(':id', $_SESSION['idUsuario']);
-                        $query->bindParam(':estado', $estado);
-                        $query->bindParam(':cidade', $cidade);
-                        $query->bindParam(':bairro', $bairro);
-                        $query->bindParam(':rua', $rua);
-                        $query->bindParam(':numero', $numero);
-                        $query->bindParam(':complemento', $complemento);
-                        $query->execute();
+                        $teste = new Endereco();
+                        $teste->editaEnderecoComplemento($estado, $cidade, $bairro, $rua, $numero, $complemento);
                         header('Location: index.php?acao=configurarConta'); 
                     }            
             }

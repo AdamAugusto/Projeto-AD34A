@@ -1,6 +1,5 @@
 <?php 
-    require_once("repositorios/produtos.conexao.php");
-    $bd = Conexao::get();
+    require('models/usuario.model.php');
     $nome = $_POST['nome'] ?? '';
     $email = $_POST['email'] ?? '';
     
@@ -11,32 +10,19 @@
             header('Location: index.php?acao=erro-editar-cadastro-admin');
         }else{
             if($nome==''){
-                $query = $bd->prepare("UPDATE usuarios 
-                SET email= :email  
-                WHERE id = :id");
-                $query->bindParam(':id', $_SESSION['idUsuario']);
-                $query->bindParam(':email', $email);
-                $query->execute();
+                $teste = new Usuario();
+                $teste->editarEmail($email);
                 $_SESSION['emailUsuario'] = $email;
                 header('Location: index.php?acao=configurarConta');
             }else{
                 if($email==''){
-                    $query = $bd->prepare("UPDATE usuarios 
-                    SET nome= :nome  
-                    WHERE id = :id");
-                    $query->bindParam(':id', $_SESSION['idUsuario']);
-                    $query->bindParam(':nome', $nome);
-                    $query->execute();
+                    $teste = new Usuario();
+                    $teste->editarNome($nome);
                     $_SESSION['usuario'] = $nome;
                     header('Location: index.php?acao=configurarConta');
                 }else{
-                    $query = $bd->prepare("UPDATE usuarios 
-                    SET nome= :nome, email= :email  
-                    WHERE id = :id");
-                    $query->bindParam(':id', $_SESSION['idUsuario']);
-                    $query->bindParam(':nome', $nome);
-                    $query->bindParam(':email', $email);
-                    $query->execute();
+                    $teste = new Usuario();
+                    $teste->editarEmaileNome($email, $nome);
                     $_SESSION['usuario'] = $nome;
                     $_SESSION['emailUsuario'] = $email;
                     header('Location: index.php?acao=configurarConta');

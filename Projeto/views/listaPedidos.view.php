@@ -36,7 +36,7 @@
                                     </div>
                                 </li>
                                 <li class="list-group-item" style="width: 80px;">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?=$array['pedido']->id?>" aria-expanded="false" aria-controls="collapseOne">
                                 </li>
                             </ul>
                             
@@ -45,7 +45,7 @@
                         
 
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div id="collapse<?=$array['pedido']->id?>" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body" style="padding: 0; background-color: lightgray;">
                             <ul class="list-group list-group-horizontal-sm">
                                 <li class="list-group-item align-middle" style="width: 740px;">

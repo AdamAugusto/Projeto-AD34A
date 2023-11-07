@@ -74,10 +74,9 @@
          Resumo do seu último pedido
     </div>
 </div>
-<?php if(sizeof($o_pedido)==0):
+<?php if(!(isset($o_pedido->id))):
     
 else:
-foreach($o_pedido as $o_pedido):
 ?>
 <div class="row ms-3 me-3 d-flex flex-fill">
         <div class="col" style="background-color: lightgray;">
@@ -132,6 +131,5 @@ foreach($o_pedido as $o_pedido):
         </div>
 </div>
 <?php 
-endforeach;
 endif;
 ?>

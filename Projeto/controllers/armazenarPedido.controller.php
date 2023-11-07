@@ -1,6 +1,11 @@
 <?php 
     require_once("repositorios/produtos.conexao.php");
     $bd = Conexao::get();
+    require('models/produto.model.php');
+    require('models/usuario.model.php');
+    require('models/endereco.model.php');
+    require('models/cartao.model.php');
+    require('models/pedido.model.php');
     if(empty($_SESSION['carrinho'])){
         header('Location: index.php?acao=erro-finalizar-compra');
     }else{
@@ -30,11 +35,9 @@
             $flag=false;
             $nomedoProduto;
             $novasQuantidade=[];
+            $teste = new Produto();
             foreach($produtosDoPedido as $produto){
-                $query = $bd->prepare('SELECT * FROM produto WHERE id = :id');
-                $query->bindParam(':id', $produto['id']);
-                $query->execute();
-                $o_produtinho=$query->fetch(PDO::FETCH_OBJ);
+                $o_produtinho=$teste->selectbyId($produto["id"]);
                 if($produto['quantidade']>$o_produtinho->quantidade){
                     $flag=true;
                     $nomedoProduto=$o_produtinho->nome;
@@ -48,51 +51,28 @@
             if($flag){
                 header("Location: index.php?acao=erro-finalizar-compra-quantidade&produto={$o_produtinho->nome}");
             }else{
-                $query = $bd->prepare('SELECT * FROM endereco WHERE usuario_id = :idUsuario');
-                $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
-                $query->execute();
-                $o_endereco=$query->fetch(PDO::FETCH_OBJ);
+                $testeEndereco = new Endereco();
+                $o_endereco=$testeEndereco->selectbyUsuarioId();
                 if(!(isset($o_endereco->id))){
                     header('Location: index.php?acao=adicionarEndereco');
                 }
                 else{
-                    $query = $bd->prepare('SELECT * FROM cartao WHERE usuario_id = :idUsuario');
-                    $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
-                    $query->execute();
                     $j=0;
-                    $o_cartao=$query->fetch(PDO::FETCH_OBJ);
+                    $testeCartao = new Cartao();
+                    $o_cartao=$testeCartao->selectbyUsuarioId();
                     if(!(isset($o_cartao->id))){
                         header('Location: index.php?acao=adicionarCartao');
                     }
                     else{
                         foreach($produtosDoPedido as $produto){
-                            $query = $bd->prepare('UPDATE produto SET quantidade= :quantidade WHERE id = :id');
-                            $query->bindParam(':id', $produto['id']);
-                            $query->bindParam(':quantidade', $novasQuantidade[$j]);
-                            $query->execute();
+                            $testeProduto = new Produto();
+                            $testeProduto->editarQuantidade($produto['id'],$novasQuantidade[$j]);
                             $j++;
                         }
-                        $query = $bd->prepare("INSERT INTO pedido (status, data, endereco_id, transportadora, usuario_id, cartao_id) 
-                                            VALUES(:status, :data, :endereco_id, :transportadora, :usuario_id, :cartao_id)");
-                        $analise='Em Análise';
-                        $query->bindParam(':status', $analise);
-                        $data = new DateTime('now', new DateTimeZone('-03:00'));
-                        $dat = $data->format('d/m/Y H:i:s');
-                        $query->bindParam(':data', $dat);
-                        $query->bindParam(':endereco_id', $o_endereco->id);
-                        $transportadora='transportadora qualquer';
-                        $query->bindParam(':transportadora', $transportadora);
-                        $query->bindParam(':usuario_id', $_SESSION['idUsuario']);
-                        $query->bindParam(':cartao_id', $o_cartao->id);
-                        $query->execute();
-                        $idPedido=$bd->lastInsertId();
+                        $testePedido = new Pedido();
+                        $idPedido=$testePedido->armazenarPedido($o_endereco->id, $o_cartao->id);                        
                         foreach($produtosDoPedido as $produto){
-                            $query = $bd->prepare("INSERT INTO pedido_item (quantidade, item_id, pedido_id) 
-                            VALUES(:quantidade, :item_id, :pedido_id)");
-                            $query->bindParam(':quantidade', $produto['quantidade']);
-                            $query->bindParam(':item_id', $produto['id']);
-                            $query->bindParam(':pedido_id', $idPedido);
-                            $query->execute();
+                            $testePedido->armazenarPedidoItem($produto['quantidade'], $produto['id'], $idPedido[$j]);
                         }
                         $_SESSION['carrinho']=[];
                         header('Location: index.php?acao=home');

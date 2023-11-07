@@ -1,6 +1,5 @@
 <?php
-    require_once("repositorios/produtos.conexao.php");
-    $bd = Conexao::get();
+    require('models/cartao.model.php');
     $numero = $_POST['numero'] ?? '';
     $titular = $_POST['titular'] ?? '';
     $validade = $_POST['validade'] ?? '';
@@ -12,13 +11,8 @@
         if(empty($_SESSION['idUsuario'])){
             header('Location: index.php?acao=erro-cadastro-cartao-admin');
         }else{
-            $query = $bd->prepare("INSERT INTO cartao (numero, titular, validade, codigo, usuario_id) VALUES(:numero, :titular, :validade, :codigo, :usuario_id)");
-            $query->bindParam(':numero', $numero);
-            $query->bindParam(':titular', $titular);
-            $query->bindParam(':validade', $validade);
-            $query->bindParam(':codigo', $cvv);
-            $query->bindParam(':usuario_id', $_SESSION['idUsuario']);
-            $query->execute();
+            $teste = new Cartao();
+            $teste->armazenarCartao($numero, $titular, $validade, $cvv);
             header('Location: index.php?acao=home');
         }
     }
