@@ -1,11 +1,12 @@
 <?php 
+require_once("repositorios/produtos.conexao.php");
     class Produto {
+        
         public function __construct(){
 
         }
 
         public function armazenaProduto($nome, $preco, $quantidade, $detalhe, $categoria){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO produto (nome, preco, quantidade, descricao, categoria) VALUES(:nome, :preco, :quantidade, :descricao, :categoria)");
             $query->bindParam(':nome', $nome);
@@ -18,7 +19,6 @@
         }
 
         public function selectbyId($id){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM produto WHERE id = :id');
                 $query->bindParam(':id', $id);
@@ -27,7 +27,6 @@
         }
 
         public function selectProduto(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM produto');
             $query->execute();
@@ -35,7 +34,6 @@
         }
 
         public function selectUmProduto($id){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM produto WHERE id = :id');
             $query->bindParam(':id', $id);
@@ -44,7 +42,6 @@
         }
 
         public function editarQuantidade($id, $quantidade){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('UPDATE produto SET quantidade= :quantidade WHERE id = :id');
             $query->bindParam(':id', $id);
@@ -53,7 +50,6 @@
         }
 
         public function excluirProduto($id){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("DELETE FROM produto WHERE id = :id");
             $id = $_GET['id'] ?? '';

@@ -1,11 +1,10 @@
 <?php 
-
+    require_once("repositorios/produtos.conexao.php");
     class Usuario{
         public function __construct() {
         }
 
         public function fazerLogin($email, $senha) {
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM usuarios WHERE email = :email AND senha = :senha');
             $query->bindParam(':email', $email);
@@ -20,7 +19,6 @@
         }
 
         public function recuperarUsuarios(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM usuarios');
             $query->execute();
@@ -28,7 +26,6 @@
         }
 
         public function cadastrarUsuario($nome, $email, $senha){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(:nome, :email, :senha)");
             $query->bindParam(':nome', $nome);
@@ -39,7 +36,6 @@
         }
 
         public function editarNome($nome){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE usuarios 
             SET nome= :nome  
@@ -51,7 +47,6 @@
         }
 
         public function editarEmail($email){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE usuarios 
             SET email= :email  
@@ -63,7 +58,6 @@
         }
 
         public function editarEmaileNome($email, $nome){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE usuarios 
             SET nome= :nome, email= :email  
@@ -76,7 +70,6 @@
         }
 
         public function excluirConta(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("DELETE FROM usuarios WHERE id = :id");
             $query->bindParam(':id', $_SESSION['idUsuario']);

@@ -1,10 +1,9 @@
 <?php 
-
+    require_once("repositorios/produtos.conexao.php");
     class Pedido {
         public function __construct() {}
         
         public function armazenarPedido($enderecoId, $cartaoId){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO pedido (status, data, endereco_id, transportadora, usuario_id, cartao_id) 
             VALUES(:status, :data, :endereco_id, :transportadora, :usuario_id, :cartao_id)");
@@ -23,7 +22,6 @@
         }
 
         public function armazenarPedidoItem($quantidade, $produtoId, $pedidoId){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO pedido_item (quantidade, item_id, pedido_id) 
             VALUES(:quantidade, :item_id, :pedido_id)");
@@ -34,7 +32,6 @@
         }
 
         public function selectPedidos(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM pedido');
             $query->execute();
@@ -42,7 +39,6 @@
         }
 
         public function selectPedidosbyUsuarioId(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM pedido WHERE usuario_id = :idUsuario');
             $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
@@ -51,7 +47,6 @@
         }
 
         public function selectUltimoPedido(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT MAX(id) FROM pedido WHERE usuario_id = :idUsuario');
             $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
@@ -60,7 +55,6 @@
         }
 
         public function selectPedidobyId($id){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM pedido WHERE id = :id');
             $query->bindParam(':id', $id);
@@ -69,7 +63,6 @@
         }
 
         public function editarStatusPedido($id, $status){
-            require_once('repositorios/produtos.conexao.php');
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE pedido 
             SET status= :status WHERE id = :id");

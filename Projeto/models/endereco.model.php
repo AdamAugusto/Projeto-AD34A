@@ -1,11 +1,11 @@
 <?php 
+    require_once("repositorios/produtos.conexao.php");
     class Endereco{
         public function __construct(){
         
         }
 
         public function armazenaEndereco($estado, $cidade, $bairro, $rua, $numero){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO endereco (estado, cidade, bairro, rua, numero, usuario_id) 
             VALUES(:estado, :cidade, :bairro, :rua, :numero, :usuario_id)");
@@ -20,7 +20,6 @@
         }
 
         public function armazenaEnderecoComplemento($estado, $cidade, $bairro, $rua, $numero, $complemento){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("INSERT INTO endereco (estado, cidade, bairro, rua, numero, complemento, usuario_id) 
             VALUES(:estado, :cidade, :bairro, :rua, :numero, :complemento, :usuario_id)");
@@ -36,7 +35,6 @@
         }
 
         public function editaEndereco($estado, $cidade, $bairro, $rua, $numero){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE endereco SET estado= :estado, cidade= :cidade, bairro= :bairro, rua= :rua, numero= :numero WHERE usuario_id = :id");
             $query->bindParam(':id', $_SESSION['idUsuario']);
@@ -50,7 +48,6 @@
         }
 
         public function editaEnderecoComplemento($estado, $cidade, $bairro, $rua, $numero, $complemento){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("UPDATE endereco SET estado= :estado, cidade= :cidade, bairro= :bairro, rua= :rua, numero= :numero, complemento= :complemento WHERE usuario_id = :id");
             $query->bindParam(':id', $_SESSION['idUsuario']);
@@ -65,7 +62,6 @@
         }
 
         public function selectbyUsuarioId(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM endereco WHERE usuario_id = :idUsuario');
             $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
@@ -74,7 +70,6 @@
         }
 
         public function selectVariosbyUsuarioId(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM endereco WHERE usuario_id = :idUsuario');
             $query->bindParam(':idUsuario', $_SESSION['idUsuario']);
@@ -83,7 +78,6 @@
         }
 
         public function selectbyId($id){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare('SELECT * FROM endereco WHERE id = :id');
             $query->bindParam(':id', $id);
@@ -92,7 +86,6 @@
         }
 
         public function excluirEndereco(){
-            require_once("repositorios/produtos.conexao.php");
             $bd = Conexao::get();
             $query = $bd->prepare("DELETE FROM endereco WHERE usuario_id = :id");
             $query->bindParam(':id', $_SESSION['idUsuario']);
