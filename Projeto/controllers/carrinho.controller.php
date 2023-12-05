@@ -42,7 +42,7 @@
                     $teste = new Produto();
                     array_push($osProdutos, $teste->selectUmProduto($id));
                     $osProdutos[$i]['quantidade']=1;
-                }else {if(array_key_exists(0, $osProdutos)){
+                }else {
                             $b=FALSE;
                             $indice=0;
                             $m=0;
@@ -62,7 +62,7 @@
                                 array_push($osProdutos, $teste->selectUmProduto($id));
                                 $osProdutos[$m]['quantidade']=1;
                             }
-                    }
+                    
                 }
                 $i+=1;
                 

@@ -31,9 +31,11 @@
             <div class="list-group d-flex flex-sm-fill align-items-center" >
                 <?php 
                     $totalTotal=0;
+                    $totalItens=0;
                     foreach($osProdutos as $oProduto):
                         $total=$oProduto['preco']*$oProduto['quantidade'];
                         $totalTotal+=$total;
+                        $totalItens+=$oProduto['quantidade'];
                 ?>
                 <ul class="list-group list-group-horizontal-sm">
                     <li class="list-group-item d-flex justify-content-center align-middle" style="width: 90px">
@@ -71,7 +73,7 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between" style="width: 705px">
                         <div class="ms-2 me-auto">
-                            total de itens:
+                            total de itens: <?=$totalItens?>
                         </div>
                         <div>
                             Frete: R$ 00,00
